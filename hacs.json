@@ -1,0 +1,5 @@
+{
+    "name": "FortiOS 7.0+",
+    "domains": ["sensor", "binary_sensor", "switch", "device_tracker"],
+    "homeassistant": "2021.5"
+}
