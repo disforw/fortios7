@@ -55,6 +55,7 @@ class FortiOSDeviceScanner(DeviceScanner):
         """Initialize the scanner."""
         self._clients = {}
         self._clients_json = {}
+        _LOGGER.debug("initializing fortios scanner")
         self._fgt = fgt
 
     def update(self):
