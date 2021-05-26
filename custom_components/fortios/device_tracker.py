@@ -37,6 +37,7 @@ def get_scanner(hass, config):
     fgt = FortiOSAPI()
 
     try:
+        _LOGGER.debug("trying to login")
         fgt.tokenlogin(host, token, verify_ssl)
     except ConnectionError as ex:
         _LOGGER.error("ConnectionError to FortiOS API: %s", ex)
@@ -72,6 +73,7 @@ class FortiOSDeviceScanner(DeviceScanner):
 
     def scan_devices(self):
         """Scan for new devices and return a list with found device IDs."""
+        _LOGGER.debug("scanning for new devices...")
         self.update()
         return self._clients
 
