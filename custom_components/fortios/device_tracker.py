@@ -37,7 +37,7 @@ def get_scanner(hass, config):
     fgt = FortiOSAPI()
 
     try:
-        _LOGGER.error("trying to login")
+        _LOGGER.debug("trying to login")
         fgt.tokenlogin(host, token, verify_ssl)
     except ConnectionError as ex:
         _LOGGER.error("ConnectionError to FortiOS API: %s", ex)
@@ -56,12 +56,12 @@ class FortiOSDeviceScanner(DeviceScanner):
         """Initialize the scanner."""
         self._clients = {}
         self._clients_json = {}
-        _LOGGER.error("initializing fortios scanner")
+        _LOGGER.debug("initializing fortios scanner")
         self._fgt = fgt
 
     def update(self):
         """Update clients from the device."""
-        clients_json = self._fgt.monitor("user/device/query", "")
+        clients_json = self._fgt.monitor("user/device/quer", "")
         self._clients_json = clients_json
 
         self._clients = []
@@ -73,13 +73,13 @@ class FortiOSDeviceScanner(DeviceScanner):
 
     def scan_devices(self):
         """Scan for new devices and return a list with found device IDs."""
-        _LOGGER.error("scanning for new devices...")
+        _LOGGER.debug("scanning for new devices...")
         self.update()
         return self._clients
 
     def get_device_name(self, device):
         """Return the name of the given device or None if we don't know."""
-        _LOGGER.error("Getting name of device %s", device)
+        _LOGGER.debug("Getting name of device %s", device)
 
         device = device.lower()
 
