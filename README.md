@@ -13,4 +13,3 @@ device_tracker:<br>
     token: !secret fortilink_api<br>
     new_device_defaults:<br>
       track_new_devices: false
-
