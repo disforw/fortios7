@@ -6,11 +6,11 @@ In the current version it queries "wifi/clients" which means the integration wil
 
 Example Configuration:
 
-device_tracker:
-  - platform: fortios7
-    host: 192.168.1.1
-    verify_ssl: false
-    token: !secret fortilink_api
-    new_device_defaults:
+device_tracker:<br>
+    platform: fortios7<br>
+    host: 192.168.1.1<br>
+    verify_ssl: false<br>
+    token: !secret fortilink_api<br>
+    new_device_defaults:<br>
       track_new_devices: false
 
