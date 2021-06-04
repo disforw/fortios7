@@ -93,7 +93,7 @@ class FortiOSDeviceScanner(DeviceScanner):
         for client in data["results"]:
             if client["mac"] == device:
                 try:
-                    name = client["host"]["name"]
+                    name = client["hostname"]
                     _LOGGER.debug("Getting device name=%s", name)
                     return name
                 except KeyError as kex:
