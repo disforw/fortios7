@@ -61,7 +61,7 @@ class FortiOSDeviceScanner(DeviceScanner):
 
     def update(self):
         """Update clients from the device."""
-        clients_json = self._fgt.monitor("user/device/quer", "")
+        clients_json = self._fgt.monitor("wifi/client", "")
         self._clients_json = clients_json
 
         self._clients = []
