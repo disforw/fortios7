@@ -68,8 +68,7 @@ class FortiOSDeviceScanner(DeviceScanner):
 
         if clients_json:
             for client in clients_json["results"]:
-                if client["last_seen"] < 180:
-                    self._clients.append(client["mac"].upper())
+                self._clients.append(client["mac"].upper())
 
     def scan_devices(self):
         """Scan for new devices and return a list with found device IDs."""
