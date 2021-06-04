@@ -68,7 +68,6 @@ class FortiOSDeviceScanner(DeviceScanner):
 
         if clients_json:
             for client in clients_json["results"]:
-                _LOGGER.warning("client found: %s", client)
                 if client["idle_time"] < 180:
                     self._clients.append(client["mac"].upper())
 
@@ -97,7 +96,7 @@ class FortiOSDeviceScanner(DeviceScanner):
                     _LOGGER.debug("Getting device name=%s", name)
                     return name
                 except KeyError as kex:
-                    _LOGGER.error("Name not found in client data: %s", kex)
+                    _LOGGER.warning("Name not found in client data: %s", kex)
                     return None
 
         return None
