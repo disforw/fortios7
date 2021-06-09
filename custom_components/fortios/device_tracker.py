@@ -65,8 +65,8 @@ class FortiOSDeviceScanner(DeviceScanner):
         self._clients_json = clients_json
 
         self._clients = []
-        if clients_json:
-            for client in clients_json["results"]:
+        if self._clients_json:
+            for client in self._clients_json["results"]:
                 if client["idle_time"] < 180:
                     self._clients.append(client["mac"].upper())
 
