@@ -118,7 +118,7 @@ class FortiOSDeviceScanner(DeviceScanner):
                     _LOGGER.debug("Getting device name=%s", name)
                     return name
                 except KeyError as kex:
-                    _LOGGER.error("Name not found in client data: %s", kex)
+                    _LOGGER.warning("Name not found in client data: %s", kex)
                     return None
 
         return None
