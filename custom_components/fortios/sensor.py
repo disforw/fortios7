@@ -41,6 +41,12 @@ class EBoxSensor(SensorEntity):
     def name(self):
         """Return the name of the sensor."""
         return f"{self.client_name} {self._name}"
+    
+    @property
+    def unique_id(self):
+        """Return the unique ID."""
+        return f"{self._client_name}_{self._name}"
+
 
     @property
     def state(self):
